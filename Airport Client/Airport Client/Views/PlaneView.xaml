@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="AirportClient.Views.PlaneView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AirportClient.Views"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=PlaneViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Go Back To Station" Command="{Binding GoBackCommand}" />
+                <TextBlock Text="{Binding Plane.FlightNumber}" FontSize="50" Margin="0,0,0,41" HorizontalAlignment="Center">
+                    <TextBlock.TextDecorations>
+                        <TextDecoration/>
+                    </TextBlock.TextDecorations>
+                </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Number: "/>
+                    <Label Content="{Binding Plane.FlightNumber}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Country: "/>
+                    <Label Content="{Binding Plane.Country}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Color: "/>
+                    <Label Content="{Binding Plane.Color}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Type: "/>
+                    <Label Content="{Binding Plane.AirplaneType}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Passangers Count: "/>
+                    <Label Content="{Binding Plane.PassangersCount}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Route: "/>
+                    <Label Content="{Binding Plane.PlaneRoute.Name}"/>
+                    <Label Content=", Length: "/>
+                    <Label Content="{Binding Plane.PlaneRoute.RouteLength}" />
+                </StackPanel>
+                <TextBlock Text="Belong To" HorizontalAlignment="Center" FontSize="32">
+                    <TextBlock.TextDecorations>
+                        <TextDecoration/>
+                    </TextBlock.TextDecorations>
+                </TextBlock>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Station: " />
+                    <Label Content="{Binding Station.StationName}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Airport: " />
+                    <Label Content="{Binding Airport.Name}" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
